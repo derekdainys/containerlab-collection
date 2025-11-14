@@ -1,0 +1,49 @@
+name: ipv6-evpn-vxlan
+prefix: ""
+topology:
+  defaults:
+    startup-config: configs/__clabNodeName__.cfg
+  groups:
+    arista:
+      kind: arista_ceos
+      image: ceos:4.34.0F
+      env:
+        CLAB_MGMT_VRF: MGMT
+  nodes:
+    spine01:
+      group: arista
+    spine02:
+      group: arista
+    spine03:
+      group: arista
+    leaf01:
+      group: arista
+    leaf02:
+      group: arista
+    leaf03:
+      group: arista
+    leaf04:
+      group: arista
+    leaf05:
+      group: arista
+    leaf06:
+      group: arista
+  links:
+    - endpoints: [ spine01:eth1, leaf01:eth1 ]
+    - endpoints: [ spine01:eth2, leaf02:eth1 ]
+    - endpoints: [ spine01:eth3, leaf03:eth1 ]
+    - endpoints: [ spine01:eth4, leaf04:eth1 ]
+    - endpoints: [ spine01:eth5, leaf05:eth1 ]
+    - endpoints: [ spine01:eth6, leaf06:eth1 ]
+    - endpoints: [ spine02:eth1, leaf01:eth2 ]
+    - endpoints: [ spine02:eth2, leaf02:eth2 ]
+    - endpoints: [ spine02:eth3, leaf03:eth2 ]
+    - endpoints: [ spine02:eth4, leaf04:eth2 ]
+    - endpoints: [ spine02:eth5, leaf05:eth2 ]
+    - endpoints: [ spine02:eth6, leaf06:eth2 ]
+    - endpoints: [ spine03:eth1, leaf01:eth3 ]
+    - endpoints: [ spine03:eth2, leaf02:eth3 ]
+    - endpoints: [ spine03:eth3, leaf03:eth3 ]
+    - endpoints: [ spine03:eth4, leaf04:eth3 ]
+    - endpoints: [ spine03:eth5, leaf05:eth3 ]
+    - endpoints: [ spine03:eth6, leaf06:eth3 ]
