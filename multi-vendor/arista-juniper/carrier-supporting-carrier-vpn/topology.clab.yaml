@@ -1,0 +1,50 @@
+name: carrier-supporting-carrier-vpn
+prefix: ""
+topology:
+  defaults:
+    startup-config: configs/__clabNodeName__.cfg
+  groups:
+    arista:
+      kind: arista_ceos
+      image: ceos:4.34.0F
+      env:
+        CLAB_MGMT_VRF: MGMT
+    juniper:
+      kind: juniper_cjunosevolved
+      image: cjunosevolved:25.2R1.8-EVO
+      env:
+        CPTX_COSIM: "BX"
+  nodes:
+    asbr01:
+      group: arista
+    asbr02:
+      group: arista
+    asbr03:
+      group: juniper
+    asbr04:
+      group: juniper
+    p01:
+      group: arista
+    p02:
+      group: arista
+    p03:
+      group: juniper
+    pe01:
+      group: arista
+    pe02:
+      group: arista
+    rr01:
+      group: arista
+    rr02:
+      group: arista
+  links:
+    - endpoints: [ p01:eth1, pe01:eth1 ]
+    - endpoints: [ p01:eth2, asbr01:eth1 ]
+    - endpoints: [ p01:eth3, rr01:eth1 ]
+    - endpoints: [ p02:eth1, pe02:eth1 ]
+    - endpoints: [ p02:eth2, asbr02:eth1 ]
+    - endpoints: [ p02:eth3, rr02:eth1 ]
+    - endpoints: [ p03:eth4, asbr03:eth4 ]
+    - endpoints: [ p03:eth5, asbr04:eth4 ]
+    - endpoints: [ asbr01:eth2, asbr03:eth5 ]
+    - endpoints: [ asbr02:eth2, asbr04:eth5 ]
