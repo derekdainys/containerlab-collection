@@ -1,0 +1,33 @@
+name: inter-provider-vpn
+prefix: ""
+topology:
+  defaults:
+    startup-config: configs/__clabNodeName__.cfg
+    kind: arista_ceos
+    image: ceos:4.34.0F
+    env:
+      CLAB_MGMT_VRF: MGMT
+  nodes:
+    pe01: {}
+    pe02: {}
+    pe03: {}
+    pe04: {}
+    p01: {}
+    p02: {}
+    p03: {}
+    p04: {}
+    
+  links:
+    - endpoints: [ pe01:eth1, p01:eth1 ]
+    - endpoints: [ pe01:eth2, p02:eth1 ]
+    - endpoints: [ pe02:eth1, p01:eth2 ]
+    - endpoints: [ pe02:eth2, p02:eth2 ]
+    - endpoints: [ p01:eth3, p02:eth3 ]
+    - endpoints: [ p01:eth4, p02:eth4 ]
+    - endpoints: [ pe03:eth1, p03:eth1 ]
+    - endpoints: [ pe03:eth2, p04:eth1 ]
+    - endpoints: [ pe04:eth1, p03:eth2 ]
+    - endpoints: [ pe04:eth2, p04:eth2 ]
+    - endpoints: [ p03:eth3, p04:eth3 ]
+    - endpoints: [ p03:eth4, p04:eth4 ]
+    - endpoints: [ pe02:eth3, pe03:eth3 ]
