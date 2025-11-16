@@ -1,0 +1,26 @@
+ip cef
+ipv6 cef
+ipv6 unicast-routing
+!
+interface Loopback0
+ ip address 101.101.101.0 255.255.255.255
+ ipv6 address 2001:101:101:101::/128
+!
+interface Loopback1
+ ip address 101.101.101.1 255.255.255.255
+ ipv6 address 2001:101:101:101::1/128
+!
+interface Loopback2
+ ip address 101.101.101.2 255.255.255.255
+ ipv6 address 2001:101:101:101::2/128
+!
+interface e0/1
+ ip address 1.11.101.101 255.255.255.0
+ ipv6 address 2001:1:11:101::101/64
+ no shutdown
+!
+interface e0/2
+ ip address 10.101.102.101 255.255.255.0
+ ipv6 address 2001:10:101:102::101/64
+ no shutdown
+!

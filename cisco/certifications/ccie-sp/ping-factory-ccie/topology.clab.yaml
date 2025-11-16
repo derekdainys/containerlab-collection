@@ -1,0 +1,141 @@
+name: ping-factory-ccie
+prefix: ""
+topology:
+  groups:
+    ios_xe:
+      kind: cisco_iol
+      image: cisco_iol:17.12.01
+      startup-config: configs/__clabNodeName__.txt.partial
+    xrd:
+      kind: cisco_xrd
+      image: cisco_xrd:7.10.2
+      startup-config: configs/__clabNodeName__.txt
+      env:
+        CLAB_MGMT_VRF: MGMT
+  nodes:
+    # Service Provider 1
+    R11:
+      group: xrd
+    R12:
+      group: xrd
+    R13:
+      group: xrd
+    R14:
+      group: xrd
+    R15:
+      group: xrd
+    R16:
+      group: xrd
+    R17:
+      group: xrd
+    CE1:
+      group: ios_xe
+    CE2:
+      group: ios_xe
+    CE3:
+      group: ios_xe
+    CE4:
+      group: ios_xe
+    #Service Provider 2
+    R21:
+      group: xrd
+    R22:
+      group: xrd
+    R23:
+      group: xrd
+    R24:
+      group: xrd
+    R25:
+      group: xrd
+    R26:
+      group: xrd
+    R27:
+      group: xrd
+    R28:
+      group: xrd
+    R29:
+      group: xrd
+    CE5:
+      group: ios_xe
+    CE6:
+      group: ios_xe
+    CE7:
+      group: ios_xe
+    # Service Provider 3
+    R31:
+      group: xrd
+    R32:
+      group: xrd
+    R33:
+      group: xrd
+    R34:
+      group: xrd
+    R35:
+      group: xrd
+    R36:
+      group: xrd
+    R37:
+      group: xrd
+    R38:
+      group: xrd
+    CE8:
+      group: ios_xe
+    CE9:
+      group: ios_xe
+    CE10:
+      group: ios_xe
+    CE11:
+      group: ios_xe
+  links:
+    ##Service Provider 1
+    - endpoints: [ "R11:Gi0-0-0-0", "R13:Gi0-0-0-0" ]
+    - endpoints: [ "R11:Gi0-0-0-1", "R14:Gi0-0-0-1" ]
+    - endpoints: [ "R12:Gi0-0-0-0", "R14:Gi0-0-0-0" ]
+    - endpoints: [ "R12:Gi0-0-0-1", "R13:Gi0-0-0-1" ]
+    - endpoints: [ "R13:Gi0-0-0-2", "R15:Gi0-0-0-0" ]
+    - endpoints: [ "R14:Gi0-0-0-2", "R16:Gi0-0-0-0" ]
+    - endpoints: [ "R13:Gi0-0-0-3", "R16:Gi0-0-0-1" ]
+    - endpoints: [ "R14:Gi0-0-0-3", "R15:Gi0-0-0-1" ]
+    - endpoints: [ "R13:Gi0-0-0-4", "R17:Gi0-0-0-0" ]
+    - endpoints: [ "R11:Gi0-0-0-2", "CE1:e0/1" ]
+    - endpoints: [ "R12:Gi0-0-0-2", "CE2:e0/1" ]
+    - endpoints: [ "R15:Gi0-0-0-2", "CE3:e0/1" ]
+    - endpoints: [ "R16:Gi0-0-0-2", "CE4:e0/1" ]
+    - endpoints: [ "CE1:e0/2", "CE2:e0/2" ]
+    # Service Provider 2
+    - endpoints: [ "R21:Gi0-0-0-0", "R23:Gi0-0-0-0" ]
+    - endpoints: [ "R21:Gi0-0-0-1", "R24:Gi0-0-0-1" ]
+    - endpoints: [ "R22:Gi0-0-0-0", "R24:Gi0-0-0-0" ]
+    - endpoints: [ "R22:Gi0-0-0-1", "R23:Gi0-0-0-1" ]
+    - endpoints: [ "R25:Gi0-0-0-0", "R27:Gi0-0-0-0" ]
+    - endpoints: [ "R25:Gi0-0-0-1", "R28:Gi0-0-0-1" ]
+    - endpoints: [ "R26:Gi0-0-0-0", "R28:Gi0-0-0-0" ]
+    - endpoints: [ "R26:Gi0-0-0-1", "R27:Gi0-0-0-1" ]
+    - endpoints: [ "R23:Gi0-0-0-2", "R25:Gi0-0-0-2" ]
+    - endpoints: [ "R24:Gi0-0-0-2", "R26:Gi0-0-0-2" ]
+    - endpoints: [ "R23:Gi0-0-0-3", "R29:Gi0-0-0-0" ]
+    - endpoints: [ "R25:Gi0-0-0-3", "R29:Gi0-0-0-1" ]
+    - endpoints: [ "R21:Gi0-0-0-2", "CE5:e0/1" ]
+    - endpoints: [ "R27:Gi0-0-0-2", "CE7:e0/1" ]
+    - endpoints: [ "R28:Gi0-0-0-2", "CE6:e0/1" ]
+    # Service Provider 3
+    - endpoints: [ "R31:Gi0-0-0-0", "R33:Gi0-0-0-0" ]
+    - endpoints: [ "R31:Gi0-0-0-1", "R34:Gi0-0-0-0" ]
+    - endpoints: [ "R31:Gi0-0-0-2", "R35:Gi0-0-0-0" ]
+    - endpoints: [ "R32:Gi0-0-0-0", "R33:Gi0-0-0-1" ]
+    - endpoints: [ "R32:Gi0-0-0-1", "R34:Gi0-0-0-1" ]
+    - endpoints: [ "R32:Gi0-0-0-2", "R35:Gi0-0-0-1" ]
+    - endpoints: [ "R31:Gi0-0-0-3", "R37:Gi0-0-0-0" ]
+    - endpoints: [ "R32:Gi0-0-0-3", "R38:Gi0-0-0-0" ]
+    - endpoints: [ "R37:Gi0-0-0-1", "R38:Gi0-0-0-1" ]
+    - endpoints: [ "R37:Gi0-0-0-2", "R36:Gi0-0-0-0" ]
+    - endpoints: [ "R38:Gi0-0-0-2", "R36:Gi0-0-0-1" ]
+    - endpoints: [ "R33:Gi0-0-0-2", "CE8:e0/1" ]
+    - endpoints: [ "R33:Gi0-0-0-3", "CE10:e0/1" ]
+    - endpoints: [ "R35:Gi0-0-0-2", "CE9:e0/1" ]
+    - endpoints: [ "R35:Gi0-0-0-3", "CE11:e0/1" ]
+    # Inter-Provider
+    - endpoints: [ "R15:Gi0-0-0-3", "R21:Gi0-0-0-3" ]
+    - endpoints: [ "R16:Gi0-0-0-3", "R22:Gi0-0-0-2" ]
+    - endpoints: [ "R16:Gi0-0-0-4", "R31:Gi0-0-0-4" ]
+    - endpoints: [ "R22:Gi0-0-0-3", "R32:Gi0-0-0-4" ]
