@@ -1,3 +1,4 @@
 clab-*
 *.annotation*
+*.excalidraw
 *.pcap
