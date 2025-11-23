@@ -1,0 +1,71 @@
+name: ine-spv4
+prefix: ""
+topology:
+  defaults:
+    startup-config: configs/__clabNodeName__.cfg
+    env:
+      CE: true
+      ISIS: true
+      L3VPN: true
+      LDP: true
+  groups:
+    xrd:
+      kind: cisco_xrd
+      image: cisco_xrd:7.10.2
+      env:
+        CLAB_MGMT_VRF: MGMT
+    csr:
+      kind: cisco_csr1000v
+      image: cisco_csr_1000v:17.03.06
+    ceos:
+      kind: arista_ceos
+      image: ceos:4.34.0F
+      env:
+        CLAB_MGMT_VRF: MGMT
+  nodes:
+    R1:
+      group: csr
+    R2:
+      group: csr
+    R3:
+      group: csr
+    R4:
+      group: csr
+    R5:
+      group: csr
+    R6:
+      group: csr
+    R7:
+      group: csr
+    R8:
+      group: csr
+    R9:
+      group: csr
+    R10:
+      group: csr
+    XR1:
+      group: xrd
+    XR2:
+      group: xrd
+    XR3:
+      group: xrd
+    XR4:
+      group: xrd
+    SW:
+      group: ceos
+
+  links:
+    - endpoints: ["R1:eth1","SW:eth1"]
+    - endpoints: ["R2:eth1","SW:eth2"]
+    - endpoints: ["R3:eth1","SW:eth3"]
+    - endpoints: ["R4:eth1","SW:eth4"]
+    - endpoints: ["R5:eth1","SW:eth5"]
+    - endpoints: ["R6:eth1","SW:eth6"]
+    - endpoints: ["R7:eth1","SW:eth7"]
+    - endpoints: ["R8:eth1","SW:eth8"]
+    - endpoints: ["R9:eth1","SW:eth9"]
+    - endpoints: ["R10:eth1","SW:eth10"]
+    - endpoints: ["XR1:Gi0-0-0-0","SW:eth11"]
+    - endpoints: ["XR2:Gi0-0-0-0","SW:eth12"]
+    - endpoints: ["XR3:Gi0-0-0-0","SW:eth13"]
+    - endpoints: ["XR4:Gi0-0-0-0","SW:eth14"]
