@@ -1,2 +1,2 @@
-# containerlab-collections
-Collection of network lab topologies that is designed to be used for experimentation, testing and learning various technologies in single vendor and multi vendor environments.
+# containerlab-collection
+Collection of network lab topologies that are designed to be used for experimentation, testing and learning various technologies in a single vendor and multi vendor environment.
