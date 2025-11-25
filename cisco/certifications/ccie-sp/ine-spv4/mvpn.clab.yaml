@@ -6,7 +6,9 @@ topology:
     env:
       CE: true
       ISIS: true
+      L3VPN: true
       LDP: true
+      MULTICAST: true
   groups:
     xrd:
       kind: cisco_xrd

@@ -4,9 +4,9 @@ topology:
   defaults:
     startup-config: configs/__clabNodeName__.cfg
     env:
+      CE: true
       ISIS: true
       MULTICAST: true
-      CE: true
   groups:
     xrd:
       kind: cisco_xrd
