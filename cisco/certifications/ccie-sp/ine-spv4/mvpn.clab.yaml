@@ -10,9 +10,9 @@ topology:
       LDP: true
       MULTICAST: true
   groups:
-    xrd:
-      kind: cisco_xrd
-      image: cisco_xrd:7.10.2
+    xrv:
+      kind: cisco_xrv
+      image: cisco_xrv:6.1.3
       env:
         CLAB_MGMT_VRF: MGMT
     csr:
@@ -45,13 +45,13 @@ topology:
     R10:
       group: csr
     XR1:
-      group: xrd
+      group: xrv
     XR2:
-      group: xrd
+      group: xrv
     XR3:
-      group: xrd
+      group: xrv
     XR4:
-      group: xrd
+      group: xrv
     SW:
       group: ceos
 
@@ -66,7 +66,7 @@ topology:
     - endpoints: ["R8:eth1","SW:eth8"]
     - endpoints: ["R9:eth1","SW:eth9"]
     - endpoints: ["R10:eth1","SW:eth10"]
-    - endpoints: ["XR1:Gi0-0-0-0","SW:eth11"]
-    - endpoints: ["XR2:Gi0-0-0-0","SW:eth12"]
-    - endpoints: ["XR3:Gi0-0-0-0","SW:eth13"]
-    - endpoints: ["XR4:Gi0-0-0-0","SW:eth14"]
+    - endpoints: ["XR1:eth1","SW:eth11"]
+    - endpoints: ["XR2:eth1","SW:eth12"]
+    - endpoints: ["XR3:eth1","SW:eth13"]
+    - endpoints: ["XR4:eth1","SW:eth14"]
