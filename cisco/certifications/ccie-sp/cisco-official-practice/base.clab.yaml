@@ -1,0 +1,125 @@
+name: cisco-practice-lab
+prefix: ""
+topology:
+  defaults:
+    startup-config: configs/__clabNodeName__.cfg
+  groups:
+    csr:
+      kind: cisco_csr1000v
+      image: cisco_csr_1000v:17.03.06
+    xrd:
+      kind: cisco_xrd
+      image: cisco_xrd:7.10.2
+      env:
+        CLAB_MGMT_VRF: MGMT
+  nodes:
+    # NSO:
+    #   group: csr
+    X-ASBR1:
+      group: xrd
+    X-ASBR2:
+      group: xrd
+    X-CE1:
+      group: csr
+    X-CE2:
+      group: csr
+    X-CE3:
+      group: xrd
+    X-CE4:
+      group: xrd
+    X-CE5:
+      group: xrd
+    X-CE6:
+      group: xrd
+    X-P1:
+      group: xrd
+    X-P2:
+      group: xrd
+    X-P3:
+      group: xrd
+    X-P4:
+      group: xrd
+    X-PCE1-RR1:
+      group: xrd
+    X-PCE2-RR2:
+      group: xrd
+    X-PE1:
+      group: xrd
+    X-PE2:
+      group: xrd
+    X-PE3:
+      group: xrd
+    X-PE4:
+      group: xrd
+    Y-ASBR1:
+      group: xrd
+    Y-ASBR2:
+      group: xrd
+    Y-CE1:
+      group: csr
+    Y-CE2:
+      group: csr
+    Y-CE3:
+      group: csr
+    Y-CE4:
+      group: xrd
+    Y-P1:
+      group: xrd
+    Y-PE1:
+      group: xrd
+    Y-PE2:
+      group: xrd
+    Y-RR1:
+      group: csr
+  links:
+    #Service Provider X
+    - endpoints: [ "X-P1:Gi0-0-0-0", "X-PE1:Gi0-0-0-0" ]
+    - endpoints: [ "X-P1:Gi0-0-0-1", "X-PE2:Gi0-0-0-0" ]
+    - endpoints: [ "X-P1:Gi0-0-0-2", "X-ASBR1:Gi0-0-0-0" ]
+    - endpoints: [ "X-P1:Gi0-0-0-3", "X-ASBR2:Gi0-0-0-0" ]
+    - endpoints: [ "X-P1:Gi0-0-0-4", "X-PCE1-RR1:Gi0-0-0-0" ]
+    - endpoints: [ "X-P2:Gi0-0-0-5", "X-P1:Gi0-0-0-5" ]
+    - endpoints: [ "X-P1:Gi0-0-0-6", "X-P3:Gi0-0-0-1" ]
+    - endpoints: [ "X-P2:Gi0-0-0-0", "X-ASBR1:Gi0-0-0-1" ]
+    - endpoints: [ "X-P2:Gi0-0-0-1", "X-ASBR2:Gi0-0-0-1" ]
+    - endpoints: [ "X-P2:Gi0-0-0-2", "X-PE1:Gi0-0-0-1" ]
+    - endpoints: [ "X-P2:Gi0-0-0-3", "X-PE2:Gi0-0-0-1" ]
+    - endpoints: [ "X-P2:Gi0-0-0-4", "X-PCE2-RR2:Gi0-0-0-0" ]
+    - endpoints: [ "X-P2:Gi0-0-0-6", "X-P4:Gi0-0-0-1" ]
+    - endpoints: [ "X-PCE1-RR1:Gi0-0-0-1", "X-PCE2-RR2:Gi0-0-0-1" ]
+    - endpoints: [ "X-P3:Gi0-0-0-0", "X-P4:Gi0-0-0-0" ]
+    - endpoints: [ "X-PE3:Gi0-0-0-0", "X-PE4:Gi0-0-0-0" ]
+    - endpoints: [ "X-PE3:Gi0-0-0-2", "X-PE4:Gi0-0-0-2" ]
+    - endpoints: [ "X-PE3:Gi0-0-0-1", "X-P3:Gi0-0-0-2" ]
+    - endpoints: [ "X-PE3:Gi0-0-0-3", "X-CE3:Gi0-0-0-0" ]
+    - endpoints: [ "X-PE3:Gi0-0-0-4", "X-P4:Gi0-0-0-3" ]
+    - endpoints: [ "X-PE4:Gi0-0-0-1", "X-P4:Gi0-0-0-2" ]
+    - endpoints: [ "X-PE4:Gi0-0-0-3", "X-CE6:Gi0-0-0-0" ]
+    - endpoints: [ "X-PE4:Gi0-0-0-4", "X-P3:Gi0-0-0-3" ]
+    - endpoints: [ "X-PE1:Gi0-0-0-2", "X-PE2:Gi0-0-0-2" ]
+    - endpoints: [ "X-PE1:Gi0-0-0-3", "X-CE1:eth2" ]
+    - endpoints: [ "X-PE1:Gi0-0-0-4", "X-CE2:eth3" ]
+    - endpoints: [ "X-PE1:Gi0-0-0-5", "X-CE5:Gi0-0-0-0" ]
+    - endpoints: [ "X-PE2:Gi0-0-0-3", "X-CE2:eth2" ]
+    - endpoints: [ "X-PE2:Gi0-0-0-4", "X-CE1:eth3" ]
+    - endpoints: [ "X-PE2:Gi0-0-0-5", "X-CE4:Gi0-0-0-0" ]
+    - endpoints: [ "X-CE1:eth4", "X-CE2:eth4" ]
+    - endpoints: [ "X-ASBR1:Gi0-0-0-2", "X-ASBR2:Gi0-0-0-2" ]
+    # Service Provider Y
+    - endpoints: [ "Y-P1:Gi0-0-0-0", "Y-ASBR1:Gi0-0-0-1" ]
+    - endpoints: [ "Y-P1:Gi0-0-0-1", "Y-ASBR2:Gi0-0-0-1" ]
+    - endpoints: [ "Y-P1:Gi0-0-0-2", "Y-PE1:Gi0-0-0-0" ]
+    - endpoints: [ "Y-P1:Gi0-0-0-3", "Y-PE2:Gi0-0-0-0" ]
+    - endpoints: [ "Y-P1:Gi0-0-0-4", "Y-RR1:eth1" ]
+    - endpoints: [ "Y-PE1:Gi0-0-0-1", "Y-PE2:Gi0-0-0-1" ]
+    - endpoints: [ "Y-PE1:Gi0-0-0-2", "Y-CE2:eth2" ]
+    - endpoints: [ "Y-PE1:Gi0-0-0-3", "Y-CE1:eth1" ]
+    - endpoints: [ "Y-PE2:Gi0-0-0-2", "Y-CE1:eth2" ]
+    - endpoints: [ "Y-PE2:Gi0-0-0-3", "Y-CE3:eth2" ]
+    - endpoints: [ "Y-PE2:Gi0-0-0-4", "Y-CE4:Gi0-0-0-0" ]
+    - endpoints: [ "Y-ASBR1:Gi0-0-0-3", "Y-CE2:eth1" ]
+    - endpoints: [ "Y-ASBR2:Gi0-0-0-3", "Y-CE3:eth1" ]
+    - endpoints: [ "Y-ASBR1:Gi0-0-0-0", "Y-ASBR2:Gi0-0-0-0" ]
+    # Interprovider Links
+    - endpoints: [ "X-ASBR1:Gi0-0-0-3", "Y-ASBR1:Gi0-0-0-2" ]
+    - endpoints: [ "X-ASBR2:Gi0-0-0-3", "Y-ASBR2:Gi0-0-0-2" ]
