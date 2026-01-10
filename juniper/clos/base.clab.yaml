@@ -2,7 +2,6 @@ name: juniper-clos
 prefix: ""
 topology:
   defaults:
-    startup-config: configs/__clabNodeName__.cfg
     kind: juniper_vjunosrouter
     image: vjunos-router:25.4R1.12
   nodes:
