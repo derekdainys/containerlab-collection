@@ -101,7 +101,7 @@ topology:
     - endpoints: ["CE13:Ethernet0/1", "PE1:Gi6"]
     - endpoints: ["CE13:Ethernet0/2", "PE3:Gi5"]
     - endpoints: ["CE23:Ethernet0/1", "PE2:eth6"]
-    - endpoints: ["CE23:Ethernet0/2", "PE3:Gi5"]
+    - endpoints: ["CE23:Ethernet0/2", "PE3:Gi6"]
     - endpoints: ["CE2:Ethernet0/2", "CE3:Ethernet0/2"]
     - endpoints: ["CE4:Ethernet0/1", "PE4:Gi4"]
     - endpoints: ["CE5:eth1", "PE5:eth4"]
