@@ -1,0 +1,117 @@
+name: big
+prefix: ""
+topology:
+  # defaults:
+  #   startup-config: configs/__clabNodeName__.cfg
+  groups:
+    xrv:
+      kind: cisco_xrv
+      image: cisco_xrv:6.6.3
+      env:
+        CLAB_MGMT_VRF: MGMT
+    csr:
+      kind: cisco_csr1000v
+      image: cisco_csr_1000v:17.03.06
+    ce:
+      kind: cisco_iol
+      image: cisco_iol:17.12.01
+  nodes:
+    PE1:
+      group: csr
+    PE2:
+      group: xrv
+    PE3:
+      group: csr
+    PE4:
+      group: csr
+    PE5:
+      group: xrv 
+    PE6:
+      group: xrv
+    P1:
+      group: csr
+    P2:
+      group: xrv
+    P3:
+      group: xrv
+    P4:
+      group: csr
+    P5:
+      group: xrv
+    P6:
+      group: xrv
+    RR1:
+      group: xrv
+    RR2:
+      group: csr
+    CE1:
+      group: xrv
+    CE2:
+      group: ce
+    CE3:
+      group: ce
+    CE4:
+      group: ce
+    CE5:
+      group: xrv
+    CE6:
+      group: ce
+    CE12:
+      group: xrv
+    CE13:
+      group: ce
+    CE23:
+      group: ce
+    CE45:
+      group: ce
+    CE56:
+      group: xrv
+
+  links:
+    - endpoints: ["PE1:Gi2", "P1:Gi4"]
+    - endpoints: ["PE1:Gi3", "P2:eth5"]
+    - endpoints: ["PE2:eth1", "P2:eth4"]
+    - endpoints: ["PE2:eth2", "P1:Gi5"]
+    - endpoints: ["PE2:eth3", "P3:eth4"]
+    - endpoints: ["PE3:Gi2", "P3:eth3"]
+    - endpoints: ["PE3:Gi3", "P2:eth6"]
+    - endpoints: ["PE4:Gi2", "P4:Gi4"]
+    - endpoints: ["PE4:Gi3", "P5:eth5"]
+    - endpoints: ["PE5:eth1", "P5:eth4"]
+    - endpoints: ["PE5:eth2", "P4:Gi5"]
+    - endpoints: ["PE5:eth3", "P6:eth4"]
+    - endpoints: ["PE6:eth1", "P6:eth3"]
+    - endpoints: ["PE6:eth2", "P5:eth6"]
+    - endpoints: ["P1:Gi2", "P4:Gi2"]
+    - endpoints: ["P1:Gi3", "P5:eth2"]
+    - endpoints: ["P2:eth1", "P5:eth1"]
+    - endpoints: ["P2:eth2", "P4:Gi3"]
+    - endpoints: ["P2:eth3", "P6:eth2"]
+    - endpoints: ["P3:eth1", "P6:eth1"]
+    - endpoints: ["P3:eth2", "P5:eth3"]
+    - endpoints: ["RR1:eth1", "P1:Gi6"]
+    - endpoints: ["RR1:eth2", "P2:eth7"]
+    - endpoints: ["RR2:Gi2", "P3:eth5"]
+    - endpoints: ["RR2:Gi3", "P2:eth8"]
+    - endpoints: ["CE1:eth1", "PE1:Gi4"]
+    - endpoints: ["CE2:Ethernet0/1", "PE2:eth4"]
+    - endpoints: ["CE3:Ethernet0/1", "PE3:Gi4"]
+    - endpoints: ["CE12:eth1", "PE1:Gi5"]
+    - endpoints: ["CE12:eth2", "PE2:eth5"]
+    - endpoints: ["CE13:Ethernet0/1", "PE1:Gi6"]
+    - endpoints: ["CE13:Ethernet0/2", "PE3:Gi5"]
+    - endpoints: ["CE23:Ethernet0/1", "PE2:eth6"]
+    - endpoints: ["CE23:Ethernet0/2", "PE3:Gi5"]
+    - endpoints: ["CE2:Ethernet0/2", "CE3:Ethernet0/2"]
+    - endpoints: ["CE4:Ethernet0/1", "PE4:Gi4"]
+    - endpoints: ["CE5:eth1", "PE5:eth4"]
+    - endpoints: ["CE6:Ethernet0/1", "PE6:eth3"]
+    - endpoints: ["CE45:Ethernet0/1", "PE4:Gi5"]
+    - endpoints: ["CE45:Ethernet0/2", "PE5:eth5"]
+    - endpoints: ["CE56:eth1", "PE5:eth6"]
+    - endpoints: ["CE56:eth2", "PE6:eth4"]
+
+
+    
+
+
