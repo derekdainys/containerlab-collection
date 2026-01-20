@@ -1,20 +1,21 @@
 name: big
 prefix: ""
 topology:
-  # defaults:
-  #   startup-config: configs/__clabNodeName__.cfg
   groups:
     xrv:
       kind: cisco_xrv
       image: cisco_xrv:6.6.3
       env:
         CLAB_MGMT_VRF: MGMT
+      startup-config: configs/__clabNodeName__.cfg
     csr:
       kind: cisco_csr1000v
       image: cisco_csr_1000v:17.03.06
+      startup-config: configs/__clabNodeName__.cfg
     ce:
       kind: cisco_iol
       image: cisco_iol:17.12.01
+      startup-config: configs/__clabNodeName__.cfg.partial
   nodes:
     PE1:
       group: csr
@@ -66,7 +67,6 @@ topology:
       group: ce
     CE56:
       group: xrv
-
   links:
     - endpoints: ["PE1:Gi2", "P1:Gi4"]
     - endpoints: ["PE1:Gi3", "P2:eth5"]
