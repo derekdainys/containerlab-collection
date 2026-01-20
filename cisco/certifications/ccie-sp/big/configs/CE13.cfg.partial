@@ -4,6 +4,7 @@ interface Ethernet0/1
  ipv6 address 2001:100:11:113::113/64
  no mop enabled
  no mop sysid
+ no shutdown
 !
 interface Ethernet0/2
  ip address 100.12.113.113 255.255.255.0
@@ -11,6 +12,7 @@ interface Ethernet0/2
  ipv6 address 2001:100:12:113::113/64
  no mop enabled
  no mop sysid
+ no shutdown
 !
 interface Loopback0
  ip address 100.113.113.0 255.255.255.255

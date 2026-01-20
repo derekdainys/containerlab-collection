@@ -4,6 +4,7 @@ interface Ethernet0/1
  ipv6 address 2001:100:14:104::104/64
  no mop enabled
  no mop sysid
+ no shutdown
 !
 interface Loopback0
  ip address 100.104.104.0 255.255.255.255
