@@ -7,15 +7,15 @@ topology:
       image: cisco_xrv:6.6.3
       env:
         CLAB_MGMT_VRF: MGMT
-      startup-config: configs/__clabNodeName__.cfg
+      startup-config: configs/base/__clabNodeName__.cfg
     csr:
       kind: cisco_csr1000v
       image: cisco_csr_1000v:17.03.06
-      startup-config: configs/__clabNodeName__.cfg
+      startup-config: configs/base/__clabNodeName__.cfg
     ce:
       kind: cisco_iol
       image: cisco_iol:17.12.01
-      startup-config: configs/__clabNodeName__.cfg.partial
+      startup-config: configs/base/__clabNodeName__.cfg.partial
   nodes:
     PE1:
       group: csr
