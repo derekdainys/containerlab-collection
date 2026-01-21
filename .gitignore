@@ -2,3 +2,4 @@ clab-*
 *.annotation*
 *.excalidraw
 *.pcap
+*.py
