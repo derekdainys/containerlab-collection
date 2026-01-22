@@ -1,0 +1,36 @@
+interface Ethernet0/1
+ ip address 100.14.145.145 255.255.255.0
+ negotiation auto
+ ipv6 address 2001:100:14:145::145/64
+ no mop enabled
+ no mop sysid
+ no shutdown
+!
+interface Ethernet0/2
+ ip address 100.15.145.145 255.255.255.0
+ negotiation auto
+ ipv6 address 2001:100:15:145::145/64
+ no mop enabled
+ no mop sysid
+ no shutdown
+!
+interface Loopback0
+ ip address 100.145.145.0 255.255.255.255
+ ipv6 address 2001:100:145:145::/128
+ no shutdown
+!
+interface Loopback1
+ ip address 100.145.145.1 255.255.255.255
+ ipv6 address 2001:100:145:145::1/128
+ no shutdown
+!
+interface Loopback2
+ ip address 100.145.145.2 255.255.255.255
+ ipv6 address 2001:100:145:145::2/128
+ no shutdown
+!
+interface Loopback3
+ ip address 100.145.145.3 255.255.255.255
+ ipv6 address 2001:100:145:145::3/128
+ no shutdown
+!
