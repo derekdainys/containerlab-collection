@@ -3,6 +3,7 @@ topology:
   groups:
     cisco_xrd:
       image: cisco_xrd:7.10.2
+      kind: cisco_xrd
   links:
   - endpoints:
     - CE1:Gi0-0-0-1

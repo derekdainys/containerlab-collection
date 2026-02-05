@@ -2,6 +2,7 @@ name: mh-evpn
 topology:
   groups:
     cisco_xrd:
+      kind: cisco_xrd
       image: cisco_xrd:7.10.2
   nodes:
     CE1:
