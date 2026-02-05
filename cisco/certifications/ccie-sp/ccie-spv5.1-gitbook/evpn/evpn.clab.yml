@@ -2,8 +2,10 @@ name: evpn
 topology:
   groups:
     cisco_xrd:
+      kind: cisco_xrd
       image: cisco_xrd:7.10.2
     cisco_csr1000v:
+      kind: cisco_csr1000v
       image: cisco_csr_1000v:17.03.06
   nodes:
     P1:
