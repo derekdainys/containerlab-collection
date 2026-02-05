@@ -1,0 +1,52 @@
+name: mh-evpn
+topology:
+  groups:
+    cisco_xrd:
+      image: cisco_xrd:7.10.2
+  links:
+  - endpoints:
+    - CE1:Gi0-0-0-1
+    - PE1:Gi0-0-0-1
+  - endpoints:
+    - CE1:Gi0-0-0-2
+    - PE2:Gi0-0-0-1
+  - endpoints:
+    - CE2:Gi0-0-0-1
+    - PE3:Gi0-0-0-1
+  - endpoints:
+    - CE2:Gi0-0-0-2
+    - PE4:Gi0-0-0-1
+  - endpoints:
+    - P1:Gi0-0-0-0
+    - PE1:Gi0-0-0-0
+  - endpoints:
+    - P1:Gi0-0-0-1
+    - PE2:Gi0-0-0-0
+  - endpoints:
+    - P1:Gi0-0-0-2
+    - PE3:Gi0-0-0-0
+  - endpoints:
+    - P1:Gi0-0-0-3
+    - PE4:Gi0-0-0-0
+  nodes:
+    CE1:
+      group: cisco_xrd
+      startup-config: lab_configs/CE1/multi.service.init.cfg
+    CE2:
+      group: cisco_xrd
+      startup-config: lab_configs/CE2/multi.service.init.cfg
+    P1:
+      group: cisco_xrd
+      startup-config: lab_configs/P1/multi.service.init.cfg
+    PE1:
+      group: cisco_xrd
+      startup-config: lab_configs/PE1/multi.service.init.cfg
+    PE2:
+      group: cisco_xrd
+      startup-config: lab_configs/PE2/multi.service.init.cfg
+    PE3:
+      group: cisco_xrd
+      startup-config: lab_configs/PE3/multi.service.init.cfg
+    PE4:
+      group: cisco_xrd
+      startup-config: lab_configs/PE4/multi.service.init.cfg

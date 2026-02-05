@@ -1,0 +1,49 @@
+name: bgp-mh-xr
+topology:
+  groups:
+    cisco_xrv:
+      image: cisco_xrv:6.6.3
+  nodes:
+    R1:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R2:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R3:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R4:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R5:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R6:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R7:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R8:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R9:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R10:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+  links:
+    - endpoints: ["R1:eth1","R2:eth1"]
+    - endpoints: ["R1:eth2","R3:eth2"]
+    - endpoints: ["R2:eth2","R4:eth2"]
+    - endpoints: ["R2:eth3","R10:eth3"]
+    - endpoints: ["R2:eth4","R5:eth4"]
+    - endpoints: ["R4:eth1","R5:eth1"]
+    - endpoints: ["R4:eth3","R7:eth3"]
+    - endpoints: ["R5:eth3","R8:eth3"]
+    - endpoints: ["R3:eth1","R6:eth1"]
+    - endpoints: ["R7:eth2","R8:eth2"]
+    - endpoints: ["R8:eth1","R9:eth1"]
+    - endpoints: ["R9:eth2","R6:eth2"]

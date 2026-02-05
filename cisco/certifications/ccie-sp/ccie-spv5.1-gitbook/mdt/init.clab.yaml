@@ -1,0 +1,35 @@
+name: mdt
+topology:
+  groups:
+    ceos:
+      image: ceos:4.34.0F
+    cisco_xrd:
+      image: cisco_xrd:7.10.2
+    cisco_xrv9k:
+      image: cisco_xrv9k:7.7.1
+    generic_vm:
+      image: andrewohanian1/canonical_ubuntu:jammy
+    linux:
+      image: andrewohanian1/canonical_ubuntu:jammy
+  links:
+  - endpoints:
+    - XR1:Gi0-0-0-0
+    - SW:eth1
+  - endpoints:
+    - XR2:Gi0-0-0-0
+    - SW:eth2
+  - endpoints:
+    - Ubuntu:eth1
+    - SW:eth3
+  nodes:
+    SW:
+      group: ceos
+      startup-config: lab_configs/SW.cfg
+    Ubuntu:
+      group: generic_vm
+    XR1:
+      group: cisco_xrd
+      startup-config: lab_configs/XR1/init.cfg
+    XR2:
+      group: cisco_xrd
+      startup-config: lab_configs/XR2/init.cfg

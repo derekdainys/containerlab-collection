@@ -1,0 +1,75 @@
+name: mvpn
+topology:
+  groups:
+    cisco_xrv:
+      image: cisco_xrv:6.6.3
+  nodes:
+    R1:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R2:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R3:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R4:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R5:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R6:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R7:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R8:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R9:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    R10:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    CE101:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    CE102:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    CE107:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    CE108:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+    CE109:
+      group: cisco_xrv
+      startup-config: lab_configs/xrv_startup_config.cfg
+  links:
+    - endpoints: ["R1:eth2","CE101:eth2"]
+    - endpoints: ["R2:eth3","CE102:eth3"]
+    - endpoints: ["R7:eth8","CE107:eth8"]
+    - endpoints: ["R8:eth9","CE108:eth9"]
+    - endpoints: ["R9:eth10","CE109:eth10"]
+    - endpoints: ["R1:eth4","R3:eth2"]
+    - endpoints: ["R1:eth5","R4:eth2"]
+    - endpoints: ["R2:eth4","R3:eth3"]
+    - endpoints: ["R2:eth5","R4:eth3"]
+    - endpoints: ["R3:eth5","R4:eth4"]
+    - endpoints: ["R3:eth6","R5:eth4"]
+    - endpoints: ["R3:eth7","R6:eth4"]
+    - endpoints: ["R3:eth10","R9:eth4"]
+    - endpoints: ["R4:eth6","R5:eth5"]
+    - endpoints: ["R4:eth7","R6:eth5"]
+    - endpoints: ["R4:eth11","R10:eth5"]
+    - endpoints: ["R5:eth7","R6:eth6"]
+    - endpoints: ["R5:eth8","R7:eth6"]
+    - endpoints: ["R5:eth9","R8:eth6"]
+    - endpoints: ["R5:eth10","R9:eth6"]
+    - endpoints: ["R6:eth8","R7:eth7"]
+    - endpoints: ["R6:eth9","R8:eth7"]
+    - endpoints: ["R6:eth11","R10:eth7"]

@@ -1,0 +1,79 @@
+name: topology1
+topology:
+  groups:
+    ceos:
+      image: ceos:4.34.0F
+    cisco_xrd:
+      image: cisco_xrd:7.10.2
+    cisco_csr1000v:
+      image: cisco_csr_1000v:17.03.06
+  nodes:
+    XR1:
+      group: cisco_xrd
+      startup-config: lab_configs/XR1/top1.ip.addressing.cfg
+    XR2:
+      group: cisco_xrd
+      startup-config: lab_configs/XR2/top1.ip.addressing.cfg
+    XR3:
+      group: cisco_xrd
+      startup-config: lab_configs/XR3/top1.ip.addressing.cfg
+    XR4:
+      group: cisco_xrd
+      startup-config: lab_configs/XR4/top1.ip.addressing.cfg
+    XR5:
+      group: cisco_xrd
+      startup-config: lab_configs/XR5/top1.ip.addressing.cfg
+    XR6:
+      group: cisco_xrd
+      startup-config: lab_configs/XR6/top1.ip.addressing.cfg
+    XR7:
+      group: cisco_xrd
+      startup-config: lab_configs/XR7/top1.ip.addressing.cfg
+    XR8:
+      group: cisco_xrd
+      startup-config: lab_configs/XR8/top1.ip.addressing.cfg
+    XR9:
+      group: cisco_xrd
+      startup-config: lab_configs/XR9/top1.ip.addressing.cfg
+    XR10:
+      group: cisco_xrd
+      startup-config: lab_configs/XR10/top1.ip.addressing.cfg
+    XR11:
+      group: cisco_xrd
+      startup-config: lab_configs/XR11/top2.sdn.transport.init.cfg
+    CSR1:
+      group: cisco_csr1000v
+    CSR2:
+      group: cisco_csr1000v
+    CSR3:
+      group: cisco_csr1000v
+    CSR4:
+      group: cisco_csr1000v
+    CSR5:
+      group: cisco_csr1000v
+    CSR6:
+      group: cisco_csr1000v
+    CSR7:
+      group: cisco_csr1000v
+    SW:
+      group: ceos
+      startup-config: lab_configs/SW.cfg
+  links:
+    - endpoints: ["XR1:Gi0-0-0-0","SW:eth1"]
+    - endpoints: ["XR2:Gi0-0-0-0","SW:eth2"]
+    - endpoints: ["XR3:Gi0-0-0-0","SW:eth3"]
+    - endpoints: ["XR4:Gi0-0-0-0","SW:eth4"]
+    - endpoints: ["XR5:Gi0-0-0-0","SW:eth5"]
+    - endpoints: ["XR6:Gi0-0-0-0","SW:eth6"]
+    - endpoints: ["XR7:Gi0-0-0-0","SW:eth7"]
+    - endpoints: ["XR8:Gi0-0-0-0","SW:eth8"]
+    - endpoints: ["XR9:Gi0-0-0-0","SW:eth9"]
+    - endpoints: ["XR10:Gi0-0-0-0","SW:eth10"]
+    - endpoints: ["XR11:Gi0-0-0-0","SW:eth11"]
+    - endpoints: ["CSR1:eth1","SW:eth12"]
+    - endpoints: ["CSR2:eth1","SW:eth13"]
+    - endpoints: ["CSR3:eth1","SW:eth14"]
+    - endpoints: ["CSR4:eth1","SW:eth15"]
+    - endpoints: ["CSR5:eth1","SW:eth16"]
+    - endpoints: ["CSR6:eth1","SW:eth17"]
+    - endpoints: ["CSR7:eth1","SW:eth18"]

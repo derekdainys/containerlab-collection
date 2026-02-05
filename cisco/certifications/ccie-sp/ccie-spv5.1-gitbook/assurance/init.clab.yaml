@@ -1,0 +1,20 @@
+name: mdt
+topology:
+  groups:
+    cisco_csr1000v:
+      image: cisco_csr_1000v:17.03.06
+    cisco_xrd:
+      image: cisco_xrd:7.10.2
+  links:
+  - endpoints:
+    - CSR1:eth1
+    - CSR2:eth1
+  nodes:
+    CSR1:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CSR1/init.cfg
+    CSR2:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CSR2/init.cfg
+    XR1:
+      group: cisco_xrd

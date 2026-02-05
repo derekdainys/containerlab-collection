@@ -1,0 +1,148 @@
+name: evpn
+topology:
+  groups:
+    cisco_csr1000v:
+      image: cisco_csr_1000v:17.03.06
+    cisco_xrd:
+      image: cisco_xrd:7.10.2
+  links:
+  - endpoints:
+    - P1:Gi0-0-0-0
+    - PE1:eth1
+  - endpoints:
+    - P1:Gi0-0-0-1
+    - PE2:eth1
+  - endpoints:
+    - P1:Gi0-0-0-2
+    - PE3:eth1
+  - endpoints:
+    - P1:Gi0-0-0-3
+    - PE4:eth1
+  - endpoints:
+    - P1:Gi0-0-0-4
+    - PE5:Gi0-0-0-0
+  - endpoints:
+    - P1:Gi0-0-0-5
+    - PE6:Gi0-0-0-0
+  - endpoints:
+    - P1:Gi0-0-0-6
+    - PE7:Gi0-0-0-0
+  - endpoints:
+    - P1:Gi0-0-0-7
+    - PE8:Gi0-0-0-0
+  - endpoints:
+    - P2:Gi0-0-0-0
+    - PE1:eth2
+  - endpoints:
+    - P2:Gi0-0-0-1
+    - PE2:eth2
+  - endpoints:
+    - P2:Gi0-0-0-2
+    - PE3:eth2
+  - endpoints:
+    - P2:Gi0-0-0-3
+    - PE4:eth2
+  - endpoints:
+    - P2:Gi0-0-0-4
+    - PE5:Gi0-0-0-1
+  - endpoints:
+    - P2:Gi0-0-0-5
+    - PE6:Gi0-0-0-1
+  - endpoints:
+    - P2:Gi0-0-0-6
+    - PE7:Gi0-0-0-1
+  - endpoints:
+    - P2:Gi0-0-0-7
+    - PE8:Gi0-0-0-1
+  - endpoints:
+    - PE1:eth3
+    - CE1:eth1
+  - endpoints:
+    - PE1:eth4
+    - CE2:eth1
+  - endpoints:
+    - PE2:eth4
+    - CE2:eth2
+  - endpoints:
+    - PE2:eth3
+    - CE3:eth1
+  - endpoints:
+    - PE3:eth3
+    - CE4:eth1
+  - endpoints:
+    - PE3:eth4
+    - CE5:eth1
+  - endpoints:
+    - PE4:eth4
+    - CE5:eth2
+  - endpoints:
+    - PE5:Gi0-0-0-2
+    - CE6:eth1
+  - endpoints:
+    - PE5:Gi0-0-0-3
+    - CE7:eth1
+  - endpoints:
+    - PE6:Gi0-0-0-3
+    - CE7:eth2
+  - endpoints:
+    - PE6:Gi0-0-0-2
+    - CE8:eth1
+  - endpoints:
+    - PE7:Gi0-0-0-3
+    - CE9:eth1
+  - endpoints:
+    - PE8:Gi0-0-0-3
+    - CE9:eth2
+  nodes:
+    CE1:
+      group: cisco_csr1000v
+    CE2:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CE2/basic.evpn.multihomed.vpws.init.cfg
+    CE3:
+      group: cisco_csr1000v
+    CE4:
+      group: cisco_csr1000v
+    CE5:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CE5/basic.evpn.multihomed.vpws.init.cfg
+    CE6:
+      group: cisco_csr1000v
+    CE7:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CE7/basic.evpn.multihomed.vpws.init.cfg
+    CE8:
+      group: cisco_csr1000v
+    CE9:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CE9/basic.evpn.multihomed.vpws.init.cfg
+    P1:
+      group: cisco_xrd
+      startup-config: lab_configs/P1/basic.evpn.multihomed.vpws.init.cfg
+    P2:
+      group: cisco_xrd
+      startup-config: lab_configs/P2/basic.evpn.multihomed.vpws.init.cfg
+    PE1:
+      group: cisco_csr1000v
+      startup-config: lab_configs/PE1/basic.evpn.multihomed.vpws.init.cfg
+    PE2:
+      group: cisco_csr1000v
+      startup-config: lab_configs/PE2/basic.evpn.multihomed.vpws.init.cfg
+    PE3:
+      group: cisco_csr1000v
+      startup-config: lab_configs/PE3/basic.evpn.multihomed.vpws.init.cfg
+    PE4:
+      group: cisco_csr1000v
+      startup-config: lab_configs/PE4/basic.evpn.multihomed.vpws.init.cfg
+    PE5:
+      group: cisco_xrd
+      startup-config: lab_configs/PE5/basic.evpn.multihomed.vpws.init.cfg
+    PE6:
+      group: cisco_xrd
+      startup-config: lab_configs/PE6/basic.evpn.multihomed.vpws.init.cfg
+    PE7:
+      group: cisco_xrd
+      startup-config: lab_configs/PE7/basic.evpn.multihomed.vpws.init.cfg
+    PE8:
+      group: cisco_xrd
+      startup-config: lab_configs/PE8/basic.evpn.multihomed.vpws.init.cfg

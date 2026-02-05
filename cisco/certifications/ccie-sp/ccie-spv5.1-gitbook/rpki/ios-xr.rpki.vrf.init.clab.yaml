@@ -1,0 +1,71 @@
+name: rpki
+topology:
+  groups:
+    ceos:
+      image: ceos:4.34.0F
+    cisco_csr1000v:
+      image: cisco_csr_1000v:17.03.06
+    cisco_xrv:
+      image: cisco_xrv:6.6.3
+    linux:
+      image: nlnetlabs/routinator
+  links:
+  - endpoints:
+    - R1:eth1
+    - SW:eth1
+  - endpoints:
+    - R2:eth1
+    - SW:eth2
+  - endpoints:
+    - R3:eth1
+    - SW:eth3
+  - endpoints:
+    - R4:eth1
+    - SW:eth4
+  - endpoints:
+    - R5:eth1
+    - SW:eth5
+  - endpoints:
+    - R6:eth1
+    - SW:eth6
+  - endpoints:
+    - XR1:eth1
+    - SW:eth11
+  - endpoints:
+    - XR2:eth1
+    - SW:eth12
+  - endpoints:
+    - XR3:eth1
+    - SW:eth13
+  - endpoints:
+    - RPKI:eth1
+    - SW:eth17
+  nodes:
+    R1:
+      group: cisco_csr1000v
+    R2:
+      group: cisco_csr1000v
+    R3:
+      group: cisco_csr1000v
+    R4:
+      group: cisco_csr1000v
+    R5:
+      group: cisco_csr1000v
+    R6:
+      group: cisco_csr1000v
+      startup-config: lab_configs/R6/ios-xr.rpki.vrf.init.cfg
+    RPKI:
+      exec:
+      - ip addr add 10.100.100.1/24 dev eth1
+      group: linux
+    SW:
+      group: ceos
+      startup-config: lab_configs/SW.cfg
+    XR1:
+      group: cisco_xrv
+      startup-config: lab_configs/XR1/ios-xr.rpki.vrf.init.cfg
+    XR2:
+      group: cisco_xrv
+      startup-config: lab_configs/XR2/ios-xr.rpki.vrf.init.cfg
+    XR3:
+      group: cisco_xrv

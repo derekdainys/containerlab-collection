@@ -1,0 +1,106 @@
+name: ine-spv4
+topology:
+  groups:
+    ceos:
+      image: ceos:4.34.0F
+      kind: arista_ceos
+    csr1000v:
+      image: cisco_csr_1000v:17.03.06
+      kind: cisco_csr1000v
+    linux:
+      image: andrewohanian1/nso:6.1
+      kind: linux
+    xrv:
+      image: cisco_xrv:6.1.3
+      kind: cisco_xrv
+  links:
+  - endpoints:
+    - R1:eth1
+    - SW:eth1
+  - endpoints:
+    - R2:eth1
+    - SW:eth2
+  - endpoints:
+    - R3:eth1
+    - SW:eth3
+  - endpoints:
+    - R4:eth1
+    - SW:eth4
+  - endpoints:
+    - R5:eth1
+    - SW:eth5
+  - endpoints:
+    - R6:eth1
+    - SW:eth6
+  - endpoints:
+    - R7:eth1
+    - SW:eth7
+  - endpoints:
+    - R8:eth1
+    - SW:eth8
+  - endpoints:
+    - R9:eth1
+    - SW:eth9
+  - endpoints:
+    - R10:eth1
+    - SW:eth10
+  - endpoints:
+    - XR1:eth1
+    - SW:eth11
+  - endpoints:
+    - XR2:eth1
+    - SW:eth12
+  - endpoints:
+    - XR3:eth1
+    - SW:eth13
+  - endpoints:
+    - XR4:eth1
+    - SW:eth14
+  - endpoints:
+    - NSO:eth1
+    - SW:eth15
+  nodes:
+    NSO:
+      exec:
+      - ip addr add 10.254.0.1/24 dev eth1
+      - service ssh restart
+      group: linux
+    R1:
+      group: csr1000v
+      startup-config: lab_configs/R1/ospfv3.ipv6.only.cfg
+    R10:
+      group: csr1000v
+    R2:
+      group: csr1000v
+      startup-config: lab_configs/R2/ospfv3.ipv6.only.cfg
+    R3:
+      group: csr1000v
+      startup-config: lab_configs/R3/ospfv3.ipv6.only.cfg
+    R4:
+      group: csr1000v
+      startup-config: lab_configs/R4/ospfv3.ipv6.only.cfg
+    R5:
+      group: csr1000v
+      startup-config: lab_configs/R5/ospfv3.ipv6.only.cfg
+    R6:
+      group: csr1000v
+      startup-config: lab_configs/R6/ospfv3.ipv6.only.cfg
+    R7:
+      group: csr1000v
+    R8:
+      group: csr1000v
+    R9:
+      group: csr1000v
+    SW:
+      group: ceos
+      startup-config: lab_configs/SW.cfg
+    XR1:
+      group: xrv
+      startup-config: lab_configs/XR1/ospfv3.ipv6.only.cfg
+    XR2:
+      group: xrv
+      startup-config: lab_configs/XR2/ospfv3.ipv6.only.cfg
+    XR3:
+      group: xrv
+    XR4:
+      group: xrv

@@ -1,0 +1,80 @@
+name: mvpn
+topology:
+  groups:
+    cisco_csr1000v:
+      image: cisco_csr_1000v:17.03.06
+    cisco_xrv:
+      image: cisco_xrv:6.6.3
+    iol:
+      image: cisco_iol:17.12.01
+  links:
+  - endpoints:
+    - P1:eth1
+    - P2:eth1
+  - endpoints:
+    - P1:eth2
+    - PE1:eth1
+  - endpoints:
+    - P2:eth2
+    - PE2:eth1
+  - endpoints:
+    - P2:eth3
+    - PE3:eth1
+  - endpoints:
+    - PE1:eth2
+    - CE1:eth1
+  - endpoints:
+    - PE2:eth2
+    - CE2:eth1
+  - endpoints:
+    - PE3:eth2
+    - CE3:eth1
+  - endpoints:
+    - CE1:eth2
+    - C1:eth1
+  - endpoints:
+    - CE2:eth2
+    - C2:eth1
+  - endpoints:
+    - CE3:eth2
+    - C3:eth1
+  nodes:
+    C1:
+      binds:
+      - lab_configs/C1/basic.profile0.cfg:/config/startup-config.cfg
+      group: iol
+      startup-config: lab_configs/C1/basic.profile3.cfg
+    C2:
+      binds:
+      - lab_configs/C2/basic.profile0.cfg:/config/startup-config.cfg
+      group: iol
+      startup-config: lab_configs/C2/basic.profile3.cfg
+    C3:
+      binds:
+      - lab_configs/C3/basic.profile0.cfg:/config/startup-config.cfg
+      group: iol
+      startup-config: lab_configs/C3/basic.profile3.cfg
+    CE1:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CE1/basic.profile3.cfg
+    CE2:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CE2/basic.profile3.cfg
+    CE3:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CE3/basic.profile3.cfg
+    P1:
+      group: cisco_xrv
+      startup-config: lab_configs/P1/basic.profile3.cfg
+    P2:
+      group: cisco_xrv
+      startup-config: lab_configs/P2/basic.profile3.cfg
+    PE1:
+      group: cisco_csr1000v
+      startup-config: lab_configs/PE1/basic.profile3.cfg
+    PE2:
+      group: cisco_csr1000v
+      startup-config: lab_configs/PE2/basic.profile3.cfg
+    PE3:
+      group: cisco_xrv
+      startup-config: lab_configs/PE3/basic.profile3.cfg

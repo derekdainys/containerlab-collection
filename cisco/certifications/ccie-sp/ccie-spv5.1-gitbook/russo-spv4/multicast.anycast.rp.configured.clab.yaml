@@ -1,0 +1,104 @@
+name: russo-spv4
+topology:
+  groups:
+    ceos:
+      image: ceos:4.34.0F
+    cisco_csr1000v:
+      image: cisco_csr_1000v:16.09.08
+    cisco_xrv:
+      image: cisco_xrv:6.6.3
+  links:
+  - endpoints:
+    - CSR1:eth1
+    - SW:eth1
+  - endpoints:
+    - CSR2:eth1
+    - SW:eth2
+  - endpoints:
+    - CSR3:eth1
+    - SW:eth3
+  - endpoints:
+    - CSR4:eth1
+    - SW:eth4
+  - endpoints:
+    - CSR5:eth1
+    - SW:eth5
+  - endpoints:
+    - CSR6:eth1
+    - SW:eth6
+  - endpoints:
+    - CSR7:eth1
+    - SW:eth7
+  - endpoints:
+    - CSR8:eth1
+    - SW:eth8
+  - endpoints:
+    - CSR9:eth1
+    - SW:eth9
+  - endpoints:
+    - CSR10:eth1
+    - SW:eth10
+  - endpoints:
+    - XR1:eth1
+    - SW:eth11
+  - endpoints:
+    - XR2:eth1
+    - SW:eth12
+  - endpoints:
+    - XR3:eth1
+    - SW:eth13
+  - endpoints:
+    - XR4:eth1
+    - SW:eth14
+  - endpoints:
+    - CSR1:eth2
+    - SW:eth15
+  - endpoints:
+    - CSR1:eth3
+    - SW:eth16
+  nodes:
+    CSR1:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CSR1/multicast.anycast.rp.configured.cfg
+    CSR10:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CSR10/multicast.anycast.rp.configured.cfg
+    CSR2:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CSR2/multicast.anycast.rp.configured.cfg
+    CSR3:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CSR3/multicast.anycast.rp.configured.cfg
+    CSR4:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CSR4/multicast.anycast.rp.configured.cfg
+    CSR5:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CSR5/multicast.anycast.rp.configured.cfg
+    CSR6:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CSR6/multicast.anycast.rp.configured.cfg
+    CSR7:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CSR7/multicast.anycast.rp.configured.cfg
+    CSR8:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CSR8/multicast.anycast.rp.configured.cfg
+    CSR9:
+      group: cisco_csr1000v
+      startup-config: lab_configs/CSR9/multicast.anycast.rp.configured.cfg
+    SW:
+      group: ceos
+      startup-config: lab_configs/SW.cfg
+    XR1:
+      group: cisco_xrv
+      startup-config: lab_configs/XR1/multicast.anycast.rp.configured.cfg
+    XR2:
+      group: cisco_xrv
+      startup-config: lab_configs/XR2/multicast.anycast.rp.configured.cfg
+    XR3:
+      group: cisco_xrv
+      startup-config: lab_configs/XR3/multicast.anycast.rp.configured.cfg
+    XR4:
+      group: cisco_xrv
+      startup-config: lab_configs/XR4/multicast.anycast.rp.configured.cfg
