@@ -2,8 +2,8 @@ name: russo-bgp-iol
 topology:
   groups:
     cisco_iol:
-      image: cisco_iol:17.12.01
-      kind: cisco_iol
+      image: cisco_csr_1000v:17.03.06
+      kind: cisco_csr1000v
     ceos:
       image: ceos:4.34.0F
       kind: arista_ceos
