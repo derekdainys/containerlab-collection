@@ -3,8 +3,10 @@ topology:
   groups:
     ceos:
       image: ceos:4.34.0F
+      kind: arista_ceos
     cisco_iol:
       image: cisco_iol:17.12.01
+      kind: cisco_iol
   links:
   - endpoints:
     - R1:eth1
