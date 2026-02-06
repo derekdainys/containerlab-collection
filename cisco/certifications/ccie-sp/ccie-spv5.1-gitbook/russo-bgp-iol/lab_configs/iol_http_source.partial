@@ -1,4 +1,4 @@
-ip http client source-interface Ethernet0/0
+ip http client source-interface GigabitEthernet1
 !
 line vty 0 4
  exec-timeout 0 0
