@@ -2,7 +2,8 @@ name: bgp-mh-iol
 topology:
   groups:
     cisco_iol:
-      image: vrnetlab/cisco_iol:17.12.01
+      image: cisco_iol:17.12.01
+      kind: cisco_iol
   links:
   - endpoints:
     - R1:eth1
