@@ -3,6 +3,7 @@ topology:
   groups:
     cisco_xrv:
       image: cisco_xrv:6.6.3
+      kind: cisco_xrv
   links:
   - endpoints:
     - R1:eth1
