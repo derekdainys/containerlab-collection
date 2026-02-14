@@ -8,6 +8,9 @@ topology:
       image: cisco_csr_1000v:17.03.06
       kind: cisco_csr1000v
     cisco_xrv:
+      healthcheck:
+        test:
+        - NONE
       image: cisco_xrv:6.6.3
       kind: cisco_xrv
   links:
