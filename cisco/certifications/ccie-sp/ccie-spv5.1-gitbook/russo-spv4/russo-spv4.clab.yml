@@ -9,7 +9,7 @@ topology:
       image: cisco_xrv:6.6.3
     cisco_csr1000v:
       kind: cisco_csr1000v
-      image: cisco_csr_1000v:16.09.08
+      image: cisco_csr_1000v:17.03.06 
   nodes:
     CSR1:
       group: cisco_csr1000v
