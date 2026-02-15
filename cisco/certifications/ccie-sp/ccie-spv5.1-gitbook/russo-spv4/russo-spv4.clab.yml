@@ -2,6 +2,7 @@ name: russo-spv4
 topology:
   groups:
     ceos:
+      kind: arista_ceos
       image: ceos:4.34.0F
     cisco_xrv:
       kind: cisco_xrv
