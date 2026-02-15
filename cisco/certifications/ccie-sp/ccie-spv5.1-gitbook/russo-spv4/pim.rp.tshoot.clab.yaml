@@ -5,8 +5,10 @@ topology:
       image: ceos:4.34.0F
     cisco_csr1000v:
       image: cisco_csr_1000v:16.09.08
+      kind: cisco_csr1000v
     cisco_xrv:
       image: cisco_xrv:6.6.3
+      kind: cisco_xrv
   links:
   - endpoints:
     - CSR1:eth1

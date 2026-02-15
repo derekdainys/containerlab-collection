@@ -4,8 +4,10 @@ topology:
     ceos:
       image: ceos:4.34.0F
     cisco_xrv:
+      kind: cisco_xrv
       image: cisco_xrv:6.6.3
     cisco_csr1000v:
+      kind: cisco_csr1000v
       image: cisco_csr_1000v:16.09.08
   nodes:
     CSR1:
