@@ -7,7 +7,6 @@ topology:
     cisco_csr1000v:
       image: cisco_csr_1000v:17.03.06
       kind: cisco_csr1000v
-      startup-delay: 300
     cisco_xrv:
       image: cisco_xrv:6.6.3
       kind: cisco_xrv

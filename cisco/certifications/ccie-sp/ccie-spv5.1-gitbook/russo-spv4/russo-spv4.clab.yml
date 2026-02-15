@@ -10,7 +10,6 @@ topology:
     cisco_csr1000v:
       kind: cisco_csr1000v
       image: cisco_csr_1000v:17.03.06 
-      startup-delay: 300
   nodes:
     CSR1:
       group: cisco_csr1000v
