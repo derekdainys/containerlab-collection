@@ -101,7 +101,5 @@ topology:
       startup-config: lab_configs/XR2/bgp-dmz-bw.init.cfg
     XR3:
       group: cisco_xrv
-      startup-config: lab_configs/XR3/bgp-dmz-bw.init.cfg
     XR4:
       group: cisco_xrv
-      startup-config: lab_configs/XR4/bgp-dmz-bw.init.cfg
