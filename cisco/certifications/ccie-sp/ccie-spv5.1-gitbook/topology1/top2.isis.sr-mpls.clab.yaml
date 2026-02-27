@@ -3,10 +3,13 @@ topology:
   groups:
     ceos:
       image: ceos:4.34.0F
+      kind: arista_ceos
     cisco_csr1000v:
       image: cisco_csr_1000v:17.03.06
+      kind: cisco_csr1000v
     cisco_xrd:
       image: cisco_xrd:7.10.2
+      kind: cisco_xrd
   links:
   - endpoints:
     - XR1:Gi0-0-0-0
