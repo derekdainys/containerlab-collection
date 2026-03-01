@@ -3,12 +3,16 @@ topology:
   groups:
     ceos:
       image: ceos:4.34.0F
+      kind: arista_ceos
     cisco_csr1000v:
       image: cisco_csr_1000v:17.03.06
+      kind: cisco_csr1000v
     cisco_xrv:
       image: cisco_xrv:6.6.3
+      kind: cisco_xrv
     linux:
       image: nlnetlabs/routinator
+      kind: linux
   links:
   - endpoints:
     - R1:eth1

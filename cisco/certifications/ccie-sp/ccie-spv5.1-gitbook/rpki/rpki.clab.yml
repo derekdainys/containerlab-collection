@@ -2,12 +2,16 @@ name: rpki
 topology:
   groups:
     linux:
+      kind: linux
       image: nlnetlabs/routinator
     cisco_csr1000v:
+      kind: cisco_csr1000v
       image: cisco_csr_1000v:17.03.06
     ceos:
+      kind: arista_ceos
       image: ceos:4.34.0F
     cisco_xrv:
+      kind: cisco_xrv
       image: cisco_xrv:6.6.3
   nodes:
     R1:
