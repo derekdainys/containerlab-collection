@@ -2,15 +2,17 @@ name: mdt
 topology:
   groups:
     linux:
+      kind: linux
       image: andrewohanian1/canonical_ubuntu:jammy
     ceos:
+      kind: arista_ceos
       image: ceos:4.34.0F
     cisco_xrd:
+      kind: cisco_xrd
       image: cisco_xrd:7.10.2
     cisco_xrv9k:
+      kind: cisco_xrv9k
       image: cisco_xrv9k:7.7.1
-    generic_vm:
-      image: andrewohanian1/canonical_ubuntu:jammy
   nodes:
     XR1:
       group: cisco_xrd
@@ -19,7 +21,7 @@ topology:
       group: cisco_xrd
       startup-config: lab_configs/XR2/init.cfg
     Ubuntu:
-      group: generic_vm
+      group: linux
     SW:
       group: ceos
       startup-config: lab_configs/SW.cfg

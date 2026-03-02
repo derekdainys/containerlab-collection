@@ -3,14 +3,16 @@ topology:
   groups:
     ceos:
       image: ceos:4.34.0F
+      kind: arista_ceos
     cisco_xrd:
       image: cisco_xrd:7.10.2
+      kind: cisco_xrd
     cisco_xrv9k:
       image: cisco_xrv9k:7.7.1
-    generic_vm:
-      image: andrewohanian1/canonical_ubuntu:jammy
+      kind: cisco_xrv9k
     linux:
       image: andrewohanian1/canonical_ubuntu:jammy
+      kind: linux
   links:
   - endpoints:
     - XR1:Gi0-0-0-0
@@ -26,7 +28,7 @@ topology:
       group: ceos
       startup-config: lab_configs/SW.cfg
     Ubuntu:
-      group: generic_vm
+      group: linux
     XR1:
       group: cisco_xrd
       startup-config: lab_configs/XR1/init.cfg
