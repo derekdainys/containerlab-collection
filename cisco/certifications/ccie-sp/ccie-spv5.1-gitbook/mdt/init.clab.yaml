@@ -32,6 +32,8 @@ topology:
       startup-config: lab_configs/SW.cfg
     Ubuntu:
       group: ubuntu
+      ports:
+      - 80:8080
     XR1:
       group: cisco_xrd
       startup-config: lab_configs/XR1/init.cfg
