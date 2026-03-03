@@ -14,7 +14,7 @@ topology:
       image: andrewohanian1/canonical_ubuntu:jammy
       kind: linux
     ubuntu:
-      image: docker/compose:1.29.2
+      image: docker:latest
       kind: linux
   links:
   - endpoints:
