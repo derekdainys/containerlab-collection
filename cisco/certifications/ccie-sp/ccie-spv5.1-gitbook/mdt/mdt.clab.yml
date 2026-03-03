@@ -26,7 +26,7 @@ topology:
     Ubuntu:
       group: ubuntu
       ports:
-        - 80:8080
+        - 8080:80
     SW:
       group: ceos
       startup-config: lab_configs/SW.cfg
