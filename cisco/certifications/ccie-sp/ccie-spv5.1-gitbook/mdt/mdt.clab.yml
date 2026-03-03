@@ -13,6 +13,9 @@ topology:
     cisco_xrv9k:
       kind: cisco_xrv9k
       image: cisco_xrv9k:7.7.1
+    ubuntu:
+      kind: linux
+      image: ubuntu:24.04
   nodes:
     XR1:
       group: cisco_xrd
@@ -21,7 +24,7 @@ topology:
       group: cisco_xrd
       startup-config: lab_configs/XR2/init.cfg
     Ubuntu:
-      group: linux
+      group: ubuntu
     SW:
       group: ceos
       startup-config: lab_configs/SW.cfg

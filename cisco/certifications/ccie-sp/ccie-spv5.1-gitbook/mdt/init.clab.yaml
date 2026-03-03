@@ -13,6 +13,9 @@ topology:
     linux:
       image: andrewohanian1/canonical_ubuntu:jammy
       kind: linux
+    ubuntu:
+      image: ubuntu:24.04
+      kind: linux
   links:
   - endpoints:
     - XR1:Gi0-0-0-0
@@ -28,7 +31,7 @@ topology:
       group: ceos
       startup-config: lab_configs/SW.cfg
     Ubuntu:
-      group: linux
+      group: ubuntu
     XR1:
       group: cisco_xrd
       startup-config: lab_configs/XR1/init.cfg
