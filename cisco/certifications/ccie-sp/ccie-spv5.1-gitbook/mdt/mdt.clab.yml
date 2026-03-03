@@ -15,7 +15,7 @@ topology:
       image: cisco_xrv9k:7.7.1
     ubuntu:
       kind: linux
-      image: ubuntu:24.04
+      image: docker/compose:1.29.2
   nodes:
     XR1:
       group: cisco_xrd
