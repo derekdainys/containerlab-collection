@@ -33,7 +33,7 @@ topology:
     Ubuntu:
       group: ubuntu
       ports:
-      - 8080:80
+      - 8080:3000
     XR1:
       group: cisco_xrd
       startup-config: lab_configs/XR1/init.cfg
