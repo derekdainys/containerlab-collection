@@ -1,0 +1,37 @@
+name: jine-spv4-cevo
+prefix: ""
+topology:
+  defaults:
+    kind: juniper_cjunosevolved
+    image: cjunosevolved:25.4R1.13-EVO
+    env:
+      CPTX_COSIM: "BX"
+  nodes:
+    R1: {}
+    R2: {}
+    R3: {}
+    R4: {}
+    R5: {}
+    R6: {}
+    R7: {}
+    R8: {}
+    R9: {}
+    R10: {}
+    R11: {}
+    R12: {}
+    R13: {}
+    R14: {}
+  links:
+    - endpoints: ["R1:eth4", "R2:eth4"]
+    - endpoints: ["R2:eth5", "R3:eth4"]
+    - endpoints: ["R2:eth6", "R4:eth4"]
+    - endpoints: ["R3:eth5", "R4:eth5"]
+    - endpoints: ["R5:eth5", "R6:eth5"]
+    - endpoints: ["R3:eth6", "R5:eth6"]
+    - endpoints: ["R3:eth7", "R6:eth6"]
+    - endpoints: ["R4:eth6", "R6:eth7"]
+    - endpoints: ["R5:eth4", "R7:eth5"]
+    - endpoints: ["R6:eth4", "R7:eth6"]
+    - endpoints: ["R8:eth4", "R7:eth4"]
+    - endpoints: ["R5:eth7", "R9:eth4"]
+    - endpoints: ["R4:eth7", "R10:eth4"]
