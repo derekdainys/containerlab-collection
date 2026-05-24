@@ -31,7 +31,7 @@ topology:
       group: junos
     SW1:
       group: ceos
-      startup-config: configs/SW1/config.cfg
+      startup-config: configs/SW1.cfg
   links:
     - endpoints: ["SW1:eth1", "R1:ge-0/0/0"]
     - endpoints: ["SW1:eth2", "R2:ge-0/0/0"]
