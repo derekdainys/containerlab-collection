@@ -1,0 +1,49 @@
+name: juniper-clos
+prefix: ""
+topology:
+  groups:
+    junos:
+      kind: juniper_vjunosrouter
+      image: vjunos-router:25.4R1.12 
+    ceos:
+      kind: arista_ceos
+      image: ceos:4.34.0F
+  nodes:
+    R1:
+      group: junos
+    R2:
+      group: junos
+    R3:
+      group: junos
+    R4:
+      group: junos
+    R5:
+      group: junos
+    R6:
+      group: junos
+    R7:
+      group: junos
+    R8:
+      group: junos
+    RR1:
+      group: junos
+    RR2:
+      group: junos
+    SW1:
+      group: ceos
+      startup-config: configs/SW1/config.cfg
+  links:
+    - endpoints: ["SW1:eth1", "R1:ge-0/0/0"]
+    - endpoints: ["SW1:eth2", "R2:ge-0/0/0"]
+    - endpoints: ["SW1:eth3", "R3:ge-0/0/0"]
+    - endpoints: ["SW1:eth4", "R4:ge-0/0/0"]
+    - endpoints: ["SW1:eth5", "R5:ge-0/0/0"]
+    - endpoints: ["SW1:eth6", "R6:ge-0/0/0"]
+    - endpoints: ["SW1:eth7", "R7:ge-0/0/0"]
+    - endpoints: ["SW1:eth8", "R8:ge-0/0/0"]
+    - endpoints: ["SW1:eth9", "RR1:ge-0/0/0"]
+    - endpoints: ["SW1:eth10", "RR2:ge-0/0/0"]
+    - endpoints: ["R1:ge-0/0/1", "R2:ge-0/0/1"]
+    - endpoints: ["R1:ge-0/0/2", "R2:ge-0/0/2"]
+    - endpoints: ["R5:ge-0/0/1", "R6:ge-0/0/1"]
+    - endpoints: ["R5:ge-0/0/2", "R6:ge-0/0/2"]
