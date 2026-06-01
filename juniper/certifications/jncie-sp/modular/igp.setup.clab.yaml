@@ -11,36 +11,36 @@ topology:
   nodes:
     R1:
       group: junos
-      startup-config: configs/R1/base.cfg
+      startup-config: configs/R1/igp.setup.cfg
     R2:
       group: junos
-      startup-config: configs/R2/base.cfg
+      startup-config: configs/R2/igp.setup.cfg
     R3:
       group: junos
-      startup-config: configs/R3/base.cfg
+      startup-config: configs/R3/igp.setup.cfg
     R4:
       group: junos
-      startup-config: configs/R4/base.cfg
+      startup-config: configs/R4/igp.setup.cfg
     R5:
       group: junos
-      startup-config: configs/R5/base.cfg
+      startup-config: configs/R5/igp.setup.cfg
     R6:
       group: junos
-      startup-config: configs/R6/base.cfg
+      startup-config: configs/R6/igp.setup.cfg
     R7:
       group: junos
-      startup-config: configs/R7/base.cfg
+      startup-config: configs/R7/igp.setup.cfg
     R8:
       group: junos
-      startup-config: configs/R8/base.cfg
+      startup-config: configs/R8/igp.setup.cfg
     RR1:
       group: junos
-      startup-config: configs/RR1/base.cfg
+      startup-config: configs/RR1/igp.setup.cfg
     RR2:
       group: junos
-      startup-config: configs/RR2/base.cfg
+      startup-config: configs/RR2/igp.setup.cfg
     DC:
-      group: junos
+      group: ceos
     SW1:
       group: ceos
       startup-config: configs/SW1.cfg

@@ -11,35 +11,37 @@ topology:
   nodes:
     R1:
       group: junos
-      startup-config: configs/R1/base.cfg
+      startup-config: configs/R1/bgp.setup.cfg
     R2:
       group: junos
-      startup-config: configs/R2/base.cfg
+      startup-config: configs/R2/bgp.setup.cfg
     R3:
       group: junos
-      startup-config: configs/R3/base.cfg
+      startup-config: configs/R3/bgp.setup.cfg
     R4:
       group: junos
-      startup-config: configs/R4/base.cfg
+      startup-config: configs/R4/bgp.setup.cfg
     R5:
       group: junos
-      startup-config: configs/R5/base.cfg
+      startup-config: configs/R5/bgp.setup.cfg
     R6:
       group: junos
-      startup-config: configs/R6/base.cfg
+      startup-config: configs/R6/bgp.setup.cfg
     R7:
       group: junos
-      startup-config: configs/R7/base.cfg
+      startup-config: configs/R7/bgp.setup.cfg
     R8:
       group: junos
-      startup-config: configs/R8/base.cfg
+      startup-config: configs/R8/bgp.setup.cfg
     RR1:
       group: junos
-      startup-config: configs/RR1/base.cfg
+      startup-config: configs/RR1/bgp.setup.cfg
     RR2:
       group: junos
-      startup-config: configs/RR2/base.cfg
-    DC:
+      startup-config: configs/RR2/bgp.setup.cfg
+    C-Node:
+      group: junos
+    P-Node:
       group: junos
     SW1:
       group: ceos
@@ -55,7 +57,8 @@ topology:
     - endpoints: ["SW1:eth8", "R8:ge-0/0/0"]
     - endpoints: ["SW1:eth9", "RR1:ge-0/0/0"]
     - endpoints: ["SW1:eth10", "RR2:ge-0/0/0"]
-    - endpoints: ["SW1:eth11", "DC:ge-0/0/0"]
+    - endpoints: ["SW1:eth11", "C-Node-1:ge-0/0/0"]
+    - endpoints: ["SW1:eth12",  "P-Node:ge-0/0/0"]
     - endpoints: ["R1:ge-0/0/1", "R2:ge-0/0/1"]
     - endpoints: ["R1:ge-0/0/2", "R2:ge-0/0/2"]
     - endpoints: ["R5:ge-0/0/1", "R6:ge-0/0/1"]
