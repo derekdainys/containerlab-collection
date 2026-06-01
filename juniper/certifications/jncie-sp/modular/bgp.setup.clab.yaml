@@ -57,7 +57,7 @@ topology:
     - endpoints: ["SW1:eth8", "R8:ge-0/0/0"]
     - endpoints: ["SW1:eth9", "RR1:ge-0/0/0"]
     - endpoints: ["SW1:eth10", "RR2:ge-0/0/0"]
-    - endpoints: ["SW1:eth11", "C-Node-1:ge-0/0/0"]
+    - endpoints: ["SW1:eth11", "C-Node:ge-0/0/0"]
     - endpoints: ["SW1:eth12",  "P-Node:ge-0/0/0"]
     - endpoints: ["R1:ge-0/0/1", "R2:ge-0/0/1"]
     - endpoints: ["R1:ge-0/0/2", "R2:ge-0/0/2"]
