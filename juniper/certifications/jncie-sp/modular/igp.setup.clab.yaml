@@ -40,7 +40,7 @@ topology:
       group: junos
       startup-config: configs/RR2/igp.setup.cfg
     DC:
-      group: ceos
+      group: junos
     SW1:
       group: ceos
       startup-config: configs/SW1.cfg
