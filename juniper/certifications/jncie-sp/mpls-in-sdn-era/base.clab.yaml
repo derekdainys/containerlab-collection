@@ -65,14 +65,14 @@ topology:
     - endpoints: ["PE2:ge-0/0/3", "CE1:ge-0/0/1"]
     - endpoints: ["CE1:ge-0/0/3", "SW1:eth1"]
     - endpoints: ["CE2:ge-0/0/3", "SW1:eth2"]
-    - endpoints: ["PE3:ge-0/0/2", "SW2:eth1"]
-    - endpoints: ["PE4:ge-0/0/2", "SW2:eth2"]
-    - endpoints: ["BR3:ge-0/0/0", "SW2:eth3"]
-    - endpoints: ["BR4:ge-0/0/0", "SW2:eth4"]
-    - endpoints: ["BR3:ge-0/0/1", "SW3:eth1"]
-    - endpoints: ["BR4:ge-0/0/1", "SW3:eth2"]
-    - endpoints: ["H1:eth1", "SW1:eth3"]
-    - endpoints: ["H3:eth1", "SW3:eth3"]
+    - endpoints: ["PE3:ge-0/0/2", "SW2:eth3"]
+    - endpoints: ["PE4:ge-0/0/2", "SW2:eth4"]
+    - endpoints: ["BR3:ge-0/0/0", "SW2:eth5"]
+    - endpoints: ["BR4:ge-0/0/0", "SW2:eth6"]
+    - endpoints: ["BR3:ge-0/0/1", "SW3:eth7"]
+    - endpoints: ["BR4:ge-0/0/1", "SW3:eth8"]
+    - endpoints: ["H1:eth1", "SW1:eth9"]
+    - endpoints: ["H3:eth1", "SW3:eth10"]
 
 
     
