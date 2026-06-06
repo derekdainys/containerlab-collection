@@ -1,0 +1,78 @@
+name: mpls-in-sdn-era
+prefix: ""
+topology:
+  groups:
+    junos:
+      kind: juniper_vjunosrouter
+      image: vjunos-router:25.4R1.12 
+    ceos:
+      kind: arista_ceos
+      image: ceos:4.34.0F
+    switch:
+      kind: bridge
+  nodes:
+    PE1:
+      group: junos
+    PE2:
+      group: junos
+    PE3:
+      group: junos
+    PE4:
+      group: junos
+    P1:
+      group: junos
+    P2:
+      group: junos
+    RR1:
+      group: junos
+    RR2:
+      group: junos
+    CE1:
+      group: junos
+    CE2:
+      group: junos
+    BR3:
+      group: junos
+    BR4:
+      group: junos
+    H1:
+      group: ceos
+    H3:
+      group: ceos
+    SW1:
+      group: switch
+    SW2:
+      group: switch
+    SW3:
+      group: switch
+  links:
+    - endpoints: ["PE1:ge-0/0/0", "P1:ge-0/0/0"]
+    - endpoints: ["PE3:ge-0/0/0", "P1:ge-0/0/1"]
+    - endpoints: ["PE2:ge-0/0/0", "P2:ge-0/0/0"]
+    - endpoints: ["PE4:ge-0/0/0", "P2:ge-0/0/1"]
+    - endpoints: ["PE1:ge-0/0/1", "PE2:ge-0/0/1"]
+    - endpoints: ["PE3:ge-0/0/1", "PE4:ge-0/0/1"]
+    - endpoints: ["P1:ge-0/0/2", "P2:ge-0/0/2"]
+    - endpoints: ["P3:ge-0/0/3", "P2:ge-0/0/3"]
+    - endpoints: ["P1:ge-0/0/4", "RR1:ge-0/0/0"]
+    - endpoints: ["P2:ge-0/0/4", "RR1:ge-0/0/1"]
+    - endpoints: ["P1:ge-0/0/5", "RR2:ge-0/0/0"]
+    - endpoints: ["P2:ge-0/0/5", "RR2:ge-0/0/1"]
+    - endpoints: ["RR1:ge-0/0/2", "RR2:ge-0/0/2"]
+    - endpoints: ["PE1:ge-0/0/2", "CE1:ge-0/0/0"]
+    - endpoints: ["PE2:ge-0/0/2", "CE2:ge-0/0/0"]
+    - endpoints: ["PE1:ge-0/0/3", "CE2:ge-0/0/1"]
+    - endpoints: ["PE2:ge-0/0/3", "CE1:ge-0/0/1"]
+    - endpoints: ["CE1:ge-0/0/3", "SW1:eth1"]
+    - endpoints: ["CE2:ge-0/0/3", "SW1:eth2"]
+    - endpoints: ["PE3:ge-0/0/2", "SW2:eth1"]
+    - endpoints: ["PE4:ge-0/0/2", "SW2:eth2"]
+    - endpoints: ["BR3:ge-0/0/0", "SW2:eth3"]
+    - endpoints: ["BR4:ge-0/0/0", "SW2:eth4"]
+    - endpoints: ["BR3:ge-0/0/1", "SW3:eth1"]
+    - endpoints: ["BR4:ge-0/0/1", "SW3:eth2"]
+    - endpoints: ["H1:eth1", "SW1:eth3"]
+    - endpoints: ["H3:eth1", "SW3:eth3"]
+
+
+    
