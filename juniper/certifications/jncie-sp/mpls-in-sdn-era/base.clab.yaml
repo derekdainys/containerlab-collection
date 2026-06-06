@@ -53,7 +53,7 @@ topology:
     - endpoints: ["PE1:ge-0/0/1", "PE2:ge-0/0/1"]
     - endpoints: ["PE3:ge-0/0/1", "PE4:ge-0/0/1"]
     - endpoints: ["P1:ge-0/0/2", "P2:ge-0/0/2"]
-    - endpoints: ["P3:ge-0/0/3", "P2:ge-0/0/3"]
+    - endpoints: ["P1:ge-0/0/3", "P2:ge-0/0/3"]
     - endpoints: ["P1:ge-0/0/4", "RR1:ge-0/0/0"]
     - endpoints: ["P2:ge-0/0/4", "RR1:ge-0/0/1"]
     - endpoints: ["P1:ge-0/0/5", "RR2:ge-0/0/0"]
