@@ -8,6 +8,8 @@ topology:
     ceos:
       kind: arista_ceos
       image: ceos:4.34.0F
+      env:
+        CLAB_MGMT_VRF: MGMT
     switch:
       kind: bridge
   nodes:
@@ -39,12 +41,9 @@ topology:
       group: ceos
     H3:
       group: ceos
-    SW1:
-      group: switch
-    SW2:
-      group: switch
-    SW3:
-      group: switch
+    SW:
+      group: ceos
+      startup-config: configs/SW.cfg
   links:
     - endpoints: ["PE1:ge-0/0/0", "P1:ge-0/0/0"]
     - endpoints: ["PE3:ge-0/0/0", "P1:ge-0/0/1"]
@@ -63,16 +62,16 @@ topology:
     - endpoints: ["PE2:ge-0/0/2", "CE2:ge-0/0/0"]
     - endpoints: ["PE1:ge-0/0/3", "CE2:ge-0/0/1"]
     - endpoints: ["PE2:ge-0/0/3", "CE1:ge-0/0/1"]
-    - endpoints: ["CE1:ge-0/0/3", "SW1:eth1"]
-    - endpoints: ["CE2:ge-0/0/3", "SW1:eth2"]
-    - endpoints: ["PE3:ge-0/0/2", "SW2:eth3"]
-    - endpoints: ["PE4:ge-0/0/2", "SW2:eth4"]
-    - endpoints: ["BR3:ge-0/0/0", "SW2:eth5"]
-    - endpoints: ["BR4:ge-0/0/0", "SW2:eth6"]
-    - endpoints: ["BR3:ge-0/0/1", "SW3:eth7"]
-    - endpoints: ["BR4:ge-0/0/1", "SW3:eth8"]
-    - endpoints: ["H1:eth1", "SW1:eth9"]
-    - endpoints: ["H3:eth1", "SW3:eth10"]
+    - endpoints: ["CE1:ge-0/0/3", "SW:eth1"]
+    - endpoints: ["CE2:ge-0/0/3", "SW:eth2"]
+    - endpoints: ["PE3:ge-0/0/2", "SW:eth3"]
+    - endpoints: ["PE4:ge-0/0/2", "SW:eth4"]
+    - endpoints: ["BR3:ge-0/0/0", "SW:eth5"]
+    - endpoints: ["BR4:ge-0/0/0", "SW:eth6"]
+    - endpoints: ["BR3:ge-0/0/1", "SW:eth7"]
+    - endpoints: ["BR4:ge-0/0/1", "SW:eth8"]
+    - endpoints: ["H1:eth1", "SW:eth9"]
+    - endpoints: ["H3:eth1", "SW:eth10"]
 
 
     
