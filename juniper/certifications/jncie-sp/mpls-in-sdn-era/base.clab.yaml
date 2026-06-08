@@ -15,32 +15,46 @@ topology:
   nodes:
     PE1:
       group: junos
+      startup-config: configs/PE1/base.cfg
     PE2:
       group: junos
+      startup-config: configs/PE2/base.cfg
     PE3:
       group: junos
+      startup-config: configs/PE3/base.cfg
     PE4:
       group: junos
+      startup-config: configs/PE4/base.cfg
     P1:
       group: junos
+      startup-config: configs/P1/base.cfg
     P2:
       group: junos
+      startup-config: configs/P2/base.cfg
     RR1:
       group: junos
+      startup-config: configs/RR1/base.cfg
     RR2:
       group: junos
+      startup-config: configs/RR2/base.cfg
     CE1:
       group: junos
+      startup-config: configs/CE1/base.cfg
     CE2:
       group: junos
+      startup-config: configs/CE2/base.cfg
     BR3:
       group: junos
+      startup-config: configs/BR3/base.cfg
     BR4:
       group: junos
+      startup-config: configs/BR4/base.cfg
     H1:
       group: ceos
+      startup-config: configs/H1/base.cfg
     H3:
       group: ceos
+      startup-config: configs/H3/base.cfg
     SW:
       group: ceos
       startup-config: configs/SW.cfg
@@ -62,8 +76,8 @@ topology:
     - endpoints: ["PE2:ge-0/0/2", "CE2:ge-0/0/0"]
     - endpoints: ["PE1:ge-0/0/3", "CE2:ge-0/0/1"]
     - endpoints: ["PE2:ge-0/0/3", "CE1:ge-0/0/1"]
-    - endpoints: ["CE1:ge-0/0/3", "SW:eth1"]
-    - endpoints: ["CE2:ge-0/0/3", "SW:eth2"]
+    - endpoints: ["CE1:ge-0/0/2", "SW:eth1"]
+    - endpoints: ["CE2:ge-0/0/2", "SW:eth2"]
     - endpoints: ["PE3:ge-0/0/2", "SW:eth3"]
     - endpoints: ["PE4:ge-0/0/2", "SW:eth4"]
     - endpoints: ["BR3:ge-0/0/0", "SW:eth5"]
