@@ -58,6 +58,3 @@ topology:
     - endpoints: ["CE:ge-0/0/5", "R8:ge-0/0/3"]
     - endpoints: ["CE:ge-0/0/6", "R9:ge-0/0/3"]
     - endpoints: ["CE:ge-0/0/7", "R9:ge-0/0/2"]
-    
-
-  
