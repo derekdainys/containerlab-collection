@@ -35,6 +35,7 @@ topology:
       startup-config: configs/R9/isis.cfg
     CE:
       group: junos
+      startup-config: configs/CE/base.cfg
   links:
     - endpoints: ["R1:ge-0/0/0", "R2:ge-0/0/0"]
     - endpoints: ["R1:ge-0/0/1", "R4:ge-0/0/1"]
