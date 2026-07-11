@@ -35,7 +35,7 @@ topology:
       startup-config: configs/R9/l3vpn.inter.provider.cfg
     CE:
       group: junos
-      startup-config: configs/CE/bgp.cfg
+      startup-config: configs/CE/l3vpn.inter.provider.cfg
   links:
     - endpoints: ["R1:ge-0/0/0", "R2:ge-0/0/0"]
     - endpoints: ["R1:ge-0/0/1", "R4:ge-0/0/1"]
