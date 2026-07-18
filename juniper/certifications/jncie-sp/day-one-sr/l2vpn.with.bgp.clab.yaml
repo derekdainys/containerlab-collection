@@ -1,0 +1,61 @@
+name: day-one-sr
+prefix: ""
+topology:
+  groups:
+    junos:
+      kind: juniper_vjunosrouter
+      image: vjunos-router:25.4R1.12
+  nodes:
+    R1:
+      group: junos
+      startup-config: configs/R1/l2vpn.with.bgp.cfg
+    R2:
+      group: junos
+      startup-config: configs/R2/l2vpn.with.bgp.cfg
+    R3:
+      group: junos
+      startup-config: configs/R3/l2vpn.with.bgp.cfg
+    R4:
+      group: junos
+      startup-config: configs/R4/l2vpn.with.bgp.cfg
+    R5:
+      group: junos
+      startup-config: configs/R5/l2vpn.with.bgp.cfg
+    R6:
+      group: junos
+      startup-config: configs/R6/l2vpn.with.bgp.cfg
+    R7:
+      group: junos
+      startup-config: configs/R7/l2vpn.with.bgp.cfg
+    R8:
+      group: junos
+      startup-config: configs/R8/l2vpn.with.bgp.cfg
+    R9:
+      group: junos
+      startup-config: configs/R9/l2vpn.with.bgp.cfg
+    CE:
+      group: junos
+      startup-config: configs/CE/l2vpn.with.bgp.cfg
+  links:
+    - endpoints: ["R1:ge-0/0/0", "R2:ge-0/0/0"]
+    - endpoints: ["R1:ge-0/0/1", "R4:ge-0/0/1"]
+    - endpoints: ["R1:ge-0/0/2", "R3:ge-0/0/2"]
+    - endpoints: ["R2:ge-0/0/1", "R5:ge-0/0/1"]
+    - endpoints: ["R4:ge-0/0/0", "R5:ge-0/0/0"]
+    - endpoints: ["R4:ge-0/0/2", "R6:ge-0/0/2"]
+    - endpoints: ["R4:ge-0/0/3", "R6:ge-0/0/3"]
+    - endpoints: ["R5:ge-0/0/2", "R7:ge-0/0/2"]
+    - endpoints: ["R5:ge-0/0/3", "R7:ge-0/0/3"]
+    - endpoints: ["R6:ge-0/0/0", "R7:ge-0/0/0"]
+    - endpoints: ["R6:ge-0/0/1", "R8:ge-0/0/1"]
+    - endpoints: ["R6:ge-0/0/4", "R3:ge-0/0/4"]
+    - endpoints: ["R7:ge-0/0/1", "R9:ge-0/0/1"]
+    - endpoints: ["R8:ge-0/0/0", "R9:ge-0/0/0"]
+    - endpoints: ["CE:ge-0/0/0", "R1:ge-0/0/3"]
+    - endpoints: ["CE:ge-0/0/1", "R1:ge-0/0/4"]
+    - endpoints: ["CE:ge-0/0/2", "R2:ge-0/0/4"]
+    - endpoints: ["CE:ge-0/0/3", "R2:ge-0/0/3"]
+    - endpoints: ["CE:ge-0/0/4", "R8:ge-0/0/2"]
+    - endpoints: ["CE:ge-0/0/5", "R8:ge-0/0/3"]
+    - endpoints: ["CE:ge-0/0/6", "R9:ge-0/0/3"]
+    - endpoints: ["CE:ge-0/0/7", "R9:ge-0/0/2"]
