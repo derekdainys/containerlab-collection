@@ -1,15 +1,19 @@
+ip multicast-routing
 interface Ethernet0/1
  no shutdown
  ip address 10.8.15.15 255.255.255.0
  ipv6 address 2001:10:8:15::15/64
+ ip pim sparse-mode
 !
 interface Ethernet0/2
  no shutdown
  ip address 10.9.15.15 255.255.255.0
  ipv6 address 2001:10:9:15::15/64
+ ip pim sparse-mode
 !
 interface Loopback0
  no shutdown
  ip address 172.16.0.5 255.255.255.255
  ipv6 address 2001:db8:172:16::5/128
+ ip pim sparse-mode
 !
