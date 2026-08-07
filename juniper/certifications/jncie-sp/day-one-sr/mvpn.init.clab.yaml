@@ -41,22 +41,22 @@ topology:
       startup-config: configs/R9/mvpn.init.cfg
     CE1:
       group: iol
-      startup-config: configs/CE1/multicast.cfg.partial
+      startup-config: configs/CE1/multicast.peered.cfg.partial
     CE2:
       group: iol
-      startup-config: configs/CE2/multicast.cfg.partial
+      startup-config: configs/CE2/multicast.peered.cfg.partial
     CE3:
       group: iol
-      startup-config: configs/CE3/multicast.cfg.partial
+      startup-config: configs/CE3/multicast.peered.cfg.partial
     CE4:
       group: iol
-      startup-config: configs/CE4/multicast.cfg.partial
+      startup-config: configs/CE4/multicast.peered.cfg.partial
     CE5:
       group: iol
-      startup-config: configs/CE5/multicast.cfg.partial
+      startup-config: configs/CE5/multicast.peered.cfg.partial
     CE6:
       group: iol
-      startup-config: configs/CE6/multicast.cfg.partial
+      startup-config: configs/CE6/multicast.peered.cfg.partial
   links:
     - endpoints: ["R1:ge-0/0/0", "R2:ge-0/0/0"]
     - endpoints: ["R1:ge-0/0/1", "R4:ge-0/0/1"]

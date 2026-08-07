@@ -1,0 +1,29 @@
+ip multicast-routing
+!
+ip pim ssm default
+!
+ip route 0.0.0.0 0.0.0.0 10.8.15.8
+!
+interface Ethernet0/1
+ no shutdown
+ ip address 10.8.15.15 255.255.255.0
+ ipv6 address 2001:10:8:15::15/64
+ ip pim sparse-mode
+!
+interface Ethernet0/2
+ no shutdown
+ ip address 10.9.15.15 255.255.255.0
+ ipv6 address 2001:10:9:15::15/64
+ ip pim sparse-mode
+!
+interface Loopback0
+ no shutdown
+ ip address 172.16.0.5 255.255.255.255
+ ipv6 address 2001:db8:172:16::5/128
+ ip pim sparse-mode
+!
+router bgp 1005
+ neighbor 10.8.15.8 remote-as 100
+ neighbor 10.9.15.9 remote-as 100
+ network 172.16.0.5 mask 255.255.255.255
+!
